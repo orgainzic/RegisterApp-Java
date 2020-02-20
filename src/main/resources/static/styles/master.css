@@ -69,7 +69,7 @@ input.update {
 	border: solid;
 	line-height: 1.75em;
 	width: calc(100% - 6px);
-	background-color: #FFFFFF;
+	background-color: rgb(238, 21, 209);
 	font-size: 16px;
 	padding: 0em .25em 0em .25em;
 }
@@ -90,7 +90,7 @@ input.submit {
     color: #000000;
     border: solid;
     padding: 10px;
-    background-color: #FFFFFF;
+    background-color: rgb(238, 21, 209);
     cursor: default;
 	text-decoration: none;
 }
@@ -99,7 +99,7 @@ button.action:hover,
 a.button:hover,
 input.submit:hover {
     cursor: pointer;
-    color: #ffffff;
+    color: rgb(238, 21, 209);
     background-color: #000000;
 }
 
@@ -107,7 +107,7 @@ input.submit:hover {
 table {
 	border-spacing: 1;
 	border-collapse: collapse;
-	background: white;
+	background: rgb(238, 21, 209);
 	border-radius: 10px;
 	overflow: hidden;
 	width: 100%;
@@ -175,7 +175,7 @@ table.hidden, tr.hidden, th.hidden, td.hidden {
 	width: fit-content;
 	width: -webkit-fit-content;
 	width: -moz-fit-content;
-	background: #EEE;
+	background: rgb(238, 21, 209);
 	opacity: 0.8;
 }
 

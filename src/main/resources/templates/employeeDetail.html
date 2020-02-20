@@ -10,7 +10,7 @@
 	<script type="text/javascript" src="/scripts/employeeDetail.js" defer></script>
 </head>
 
-<body>
+<body style="background-color: rgb(238, 21, 209);">
 
 	<div class="header">
 		<h1 class="primary-message">Employee Detail</h1>
@@ -42,18 +42,41 @@
 							<input id="employeeEmployeeId" type="text" th:value="${!employee.isEmpty} ? ${employee.employeeId} : ''" class="update" disabled />
 						</td>
 					</tr>
-					<!-- TODO: Other employee inputs -->
+					<tr th:class="${employee.isEmpty} ? hidden : ''">
+						<td class="label">Employee First Name:</td>
+						<td>
+							<input id="employeeFirstName" type="text" placeholder="Enter your first name." th:value="${!employee.isEmpty} ? ${employee.firstName} : ''" class="update" />
+						</td>
+					</tr>
+					<tr th:class="${employee.isEmpty} ? hidden : ''">
+						<td class="label">Employee Last Name:</td>
+						<td>
+							<input id="employeeLastName" type="text" placeholder="Enter your last name." th:value="${!employee.isEmpty} ? ${employee.lastName} : ''" class="update" />
+						</td>
+					</tr>
+					<tr th:class="${employee.isEmpty} ? hidden : ''">
+						<td class="label">Employee Password:</td>
+						<td>
+							<input id="employeePassword" placeholder="Enter your password." type="password" th:value="${!employee.isEmpty} ? ${employee.password} : ''" class="update" />
+						</td>
+					</tr>
+					<tr th:class="${employee.isEmpty} ? hidden : ''">
+						<td class="label">Verify Password:</td>
+						<td>
+							<input id="employeePassword" placeholder="Verify your password" type="password" th:value="${!employee.isEmpty} ? ${employee.password} : ''" class="update" />
+						</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
 
-		<!-- TODO: An action element to initiate a save -->
+		<button id="saveButton" type="button" class="action">Save</button>
 
 		<div id="employeeSavedAlertModal" class="modal animate-opacity-show">
 			<div class="modal-content">
 				<div class="container gray-blue">
 					<h1>
-						<span>Employee</span><br />
+						<span>Employee</span><br/>
 						<span>Saved</span>
 					</h1>
 				</div>
