@@ -2,7 +2,7 @@
 
 <head>
 	<title>Register - Sign In</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" type="text/css" href="/styles/master.css">
 
@@ -15,7 +15,7 @@
 	<div class="header">
 		<h1 class="primary-message">Sign In</h1>
 	</div>
-		
+
 	<div id="main" class="main">
 		<div id="error" th:class="${#strings.isEmpty(errorMessage)} ? hidden : ''">
 			<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
@@ -23,9 +23,16 @@
 
 		<form action="/" method="POST" onsubmit="return validateForm();" class="inputContent">
 			<!-- TODO: Form input elements -->
+			<label for="empId"><b>Employee ID</b></label>
+	        <input type="number" placeholder="Enter Employee ID" name="empId" required>
+
+	        <label for="psw"><b>Password</b></label>
+	        <input type="password" placeholder="Enter Password" name="psw" required>
+
+	        <input type="submit" value="Sign In">
 		</form>
 	</div>
-		
+
 </body>
 
 </html>
