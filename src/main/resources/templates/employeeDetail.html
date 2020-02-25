@@ -4,13 +4,13 @@
 	<title>Register - Employee</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" type="text/css" href="/styles/master.css">
+	<link rel="stylesheet" type="text/css" href="../static/styles/master.css">
 
-	<script type="text/javascript" src="/scripts/master.js" defer></script>
-	<script type="text/javascript" src="/scripts/employeeDetail.js" defer></script>
+	<script type="text/javascript" src="../static/scripts/master.js" defer></script>
+	<script type="text/javascript" src="../static/scripts/employeeDetail.js" defer></script>
 </head>
 
-<body style="background-color: rgb(238, 21, 209);">
+<body>
 
 	<div class="header">
 		<h1 class="primary-message">Employee Detail</h1>
@@ -67,9 +67,9 @@
 						</td>
 					</tr>
 					<tr th:class="${employee.isEmpty} ? hidden : ''">
-						<td class="label">Employee Title:
-							<select id="employeeTitle" placeholder="Select title" th:field="*{employee.title}">
-								<option th:each="title : ${title}" th:value= "${employee.title}"></option>
+						<td class="label">Employee Classification:
+							<select id="employeeClassification" placeholder="Select title" th:field="*{employee.classification}">
+								<option th:each="classification : ${classification}" th:value= "${employee.classification}"></option>
 							</select>
 						</td>
 					</tr>
@@ -92,7 +92,7 @@
 	</div>
 
 	<div class="footer" th:classappend="${employee.isInitialEmployee} ? hidden : ''">
-		<img id="signOutImage" src="/images/Sign-Out.png" alt="Sign Out" class="footer" />
+		<img id="signOutImage" src="../images/Sign-Out.png" alt="Sign Out" class="footer" />
 	</div>
 
 </body>

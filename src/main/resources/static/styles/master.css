@@ -69,7 +69,7 @@ input.update {
 	border: solid;
 	line-height: 1.75em;
 	width: calc(100% - 6px);
-	background-color: rgb(238, 21, 209);
+	background-color: rgb(250, 243, 249);
 	font-size: 16px;
 	padding: 0em .25em 0em .25em;
 }
@@ -144,7 +144,7 @@ table td.label {
 tbody tr {
 	font-family: OpenSans-Regular;
 	font-size: 16px;
-	color: #808080;
+	color: #20eb42;
 	line-height: 1.2;
 	font-weight: unset;
 }
@@ -184,6 +184,6 @@ table.hidden, tr.hidden, th.hidden, td.hidden {
 .animate-opacity-show{animation:opac 0.8s}@keyframes opac{from{opacity:0} to{opacity:1}}
 
 .gray-blue {
-	color: #607D8B!important;
+	color: rgb(6, 235, 56)!important;
 }
 /* End product saved alert modal */

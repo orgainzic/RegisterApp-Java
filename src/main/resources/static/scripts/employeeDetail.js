@@ -37,7 +37,7 @@ function saveActionClick(event) {
 		id: employeeId,
 		firstName: getFirstName(),
 		lastName: getLastName(),
-		title: getTitle(),
+		title: getClassification(),
 		password: getPassword(),
 	};
 
@@ -155,15 +155,15 @@ function getPasswordElement() {
 	return document.getElementById("password");
 }
 
-function getTitle() {
-	return getTitleElement().value;
+function getClassification() {
+	return getClassificationElement().value;
 }
 
-function setTitle() {
-	return getTitleElement().value = title;
+function setClassification() {
+	return getClassificationElement().value = classification;
 }
 
-function getTitleElement() {
-	return document.getElementById("title");
+function getClassificationElement() {
+	return document.getElementById("classification");
 }
 //End getters and setters
