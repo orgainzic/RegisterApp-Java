@@ -66,6 +66,13 @@
 							<input id="employeePassword" placeholder="Verify your password" type="password" th:value="${!employee.isEmpty} ? ${employee.password} : ''" class="update" />
 						</td>
 					</tr>
+					<tr th:class="${employee.isEmpty} ? hidden : ''">
+						<td class="label">Employee Title:
+							<select id="employeeTitle" placeholder="Select title" th:field="*{employee.title}">
+								<option th:each="title : ${title}" th:value= "${employee.title}"></option>
+							</select>
+						</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
