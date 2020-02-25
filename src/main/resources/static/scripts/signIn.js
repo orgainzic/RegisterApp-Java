@@ -3,28 +3,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 
 function validateForm() {
-	
-	var empIdIn = document.getElementById("empId").value;
-	var pswIn = document.getElementById("psw").value;
-	
-	alert("employee id " + empIdIn);
-	alert("password " + pswIn);
-			
-	if (empIdIn.length == 0)	{
+
+	let empId = document.signInForm.empId.value;
+	let empPsw = document.signInForm.empPsw.value;
+
+	if (empId.length == 0)	{
 		alert("Employee ID should not be blank");
+		return false;
 	}
-	
-	if (typeof empIdIn == 'number')	{
+
+	if (typeof empId == 'number')	{
 		alert("Employee ID should be numeric");
+		return false;
 	}
-	
-	if (pswIn.length == 0)	{
+
+	if (empPsw.length == 0)	{
 		alert("The password should not be blank");
+		return false;
 	}
-	
-	else	{
-		alert("Correct");
-	}
-	
+
 	return true;
 }
