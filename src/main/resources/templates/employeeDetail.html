@@ -45,13 +45,13 @@
 					<tr th:class="${employee.isEmpty} ? hidden : ''">
 						<td class="label">Employee First Name:</td>
 						<td>
-							<input id="employeeFirstName" type="text" placeholder="Enter your first name." th:value="${!employee.isEmpty} ? ${employee.firstName} : ''" class="update" />
+							<input id="employeeFirstName" type="text" placeholder="Enter your first name." th:value="${!employee.isEmpty} ? ${employee.firstname} : ''" class="update" />
 						</td>
 					</tr>
 					<tr th:class="${employee.isEmpty} ? hidden : ''">
 						<td class="label">Employee Last Name:</td>
 						<td>
-							<input id="employeeLastName" type="text" placeholder="Enter your last name." th:value="${!employee.isEmpty} ? ${employee.lastName} : ''" class="update" />
+							<input id="employeeLastName" type="text" placeholder="Enter your last name." th:value="${!employee.isEmpty} ? ${employee.lastname} : ''" class="update" />
 						</td>
 					</tr>
 					<tr th:class="${employee.isEmpty} ? hidden : ''">
@@ -69,7 +69,7 @@
 					<tr th:class="${employee.isEmpty} ? hidden : ''">
 						<td class="label">Employee Classification:
 							<select id="employeeClassification" placeholder="Select title" th:field="*{employee.classification}">
-								<option th:each="classification : ${classification}" th:value= "${employee.classification}"></option>
+								<option placeholder="Select position" th:each="employee_Type : ${employeeType}" th:text="*{classification}" th:value= "${employee.classification} : ''" class="update"></option>
 							</select>
 						</td>
 					</tr>

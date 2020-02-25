@@ -53,7 +53,8 @@ function saveActionClick(event) {
 };
 
 function validateSave(){
-	const lastname = getLastName();
+
+	const lastName = getLastName();
 	if(lastName == null) {
 		displayError("Please provide a valid last name.");
 		return false;
@@ -71,8 +72,8 @@ function validateSave(){
 		return false;
 	}
 
-	const title = getTitle();
-	if(title == null) {
+	const classification = getClassification();
+	if(classification == null) {
 		displayError("Please select a title.")
 		return false
 	}
@@ -102,6 +103,10 @@ function hideEmployeeSavedAlertModal() {
 // End save
 
 //Getters and setters
+function getSaveActionElement() {
+	return document.getElementById("saveButton");
+}
+
 function getSavedAlertModalElement() {
 	return document.getElementById("employeeSavedAlertModal");
 }
@@ -127,9 +132,8 @@ function setFirstName() {
 }
 
 function getFirstNameElement() {
-	return document.getElementById("firstName");
+	return document.getElementById("employeeFirstName");
 }
-
 
 function getLastName() {
 	return getLastNameElement().value;
@@ -140,7 +144,7 @@ function setLastName() {
 }
 
 function getLastNameElement() {
-	return document.getElementById("lastName");
+	return document.getElementById("employeeLastName");
 }
 
 function getPassword() {
@@ -152,7 +156,7 @@ function setPassword() {
 }
 
 function getPasswordElement() {
-	return document.getElementById("password");
+	return document.getElementById("employeePassword");
 }
 
 function getClassification() {
@@ -164,6 +168,6 @@ function setClassification() {
 }
 
 function getClassificationElement() {
-	return document.getElementById("classification");
+	return document.getElementById("employeeClassification");
 }
 //End getters and setters
