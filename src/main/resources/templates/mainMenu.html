@@ -18,16 +18,18 @@
 		
 	<div id="main" class="main">
 		<div id="error" th:class="${#strings.isEmpty(errorMessage)} ? hidden : ''">
-			<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
+			<h4 id="errorMessage" class="error-message" th:text="${Functionality has not yet been implemented.}"></h4>
 		</div>
 
-		<!-- TODO: Add the various action button elements -->
-		<button onclick="">Strart Transaxtion
-		<button onclick="">View Products
-	    <button onclick="">Create Employee
-		<button onclick="">Sales Report
-		<button onclick="">Cashier Report
-		<button input type="file" src="/images/Sign-Out.png" onclick="" alt="Sign Out">
+		<button type="button" class="action" id="StartTransaction">Start transaction</button>
+		<button type="button" class="action" id="ViewProducts">View Products</button>
+		<!-- TODO:: Proper Manager Access Display -->
+		<div id="elevatedAccess">
+			<button type="button" class="action" id="CreateEmployee">Create Employee</button>
+			<button type="button" class="action" id="SalesReport">Sales Report</button>
+			<button type="button" class="action" id="CashierReport">Cashier Report</button>
+		</div>
+		
 	</div>
 
 	<div class="hidden">
@@ -47,7 +49,7 @@
 	</div>
 
 	<div class="footer">
-		<img id="signOutImage" src="/images/Sign-Out.png" alt="Sign Out" class="footer" />
+		<button type="button" id="signOutImage" src="../images/Sign-Out.png" alt="Sign Out" class="footer" />
 	</div>
 		
 </body>
