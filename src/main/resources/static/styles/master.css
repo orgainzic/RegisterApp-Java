@@ -1,6 +1,8 @@
 div.header {
-	padding-top: 1px;
-	text-align: right;
+	padding: 20px;
+	text-align: center;
+	background: #20eb42;
+	color: #f529da;
 }
 
 div.main {
@@ -9,7 +11,7 @@ div.main {
 }
 
 h1.primary-message {
-	font-size: 30px;
+	font-size: 60px;
 	text-align: center;
 }
 

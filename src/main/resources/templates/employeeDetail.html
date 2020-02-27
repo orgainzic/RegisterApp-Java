@@ -66,10 +66,12 @@
 							<input id="employeePassword" placeholder="Verify your password" type="password" th:value="${!employee.isEmpty} ? ${employee.password} : ''" class="update" />
 						</td>
 					</tr>
-					<tr th:class="${employee.isEmpty} ? hidden : ''">
-						<td class="label">Employee Classification:
-							<select id="employeeClassification" placeholder="Select title" th:field="*{employee.classification}">
-								<option placeholder="Select position" th:each="employee_Type : ${employeeType}" th:text="*{classification}" th:value= "${employee.classification} : ''" class="update"></option>
+					<tr>
+						<td class="label">Employee Classification</td>
+							<td><select id="employeeClassification" class="select">
+								<option th:value="Cashier">Cashier</option>
+								<option th:value="Shift Manger">General Manager</option>
+								<option th:value="Shift Manger">Shift Manager</option>
 							</select>
 						</td>
 					</tr>
@@ -77,7 +79,7 @@
 			</table>
 		</div>
 
-		<button id="saveButton" type="button" class="action">Save</button>
+		<div></div><button id="saveButton" type="button" class="action">Save</button></div>
 
 		<div id="employeeSavedAlertModal" class="modal animate-opacity-show">
 			<div class="modal-content">
