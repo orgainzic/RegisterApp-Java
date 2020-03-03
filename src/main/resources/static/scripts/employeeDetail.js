@@ -42,11 +42,27 @@ function saveActionClick(event) {
 	};
 
 	if (employeeIdIsDefined) {
-		ajaxPut(saveActionUrl, saveProductRequest, (callbackResponse) => {
+		ajaxPatch(saveActionUrl, saveEmployeeRequest, (callbackResponse) => {
 			saveActionElement.disabled = false;
 
 			if (isSuccessResponse(callbackResponse)) {
 				displayEmployeeSavedAlertModal();
+			}
+		});
+	} else {
+		ajaxPost(saveActionUrl, saveEmployeeRequest, (callbackResponse) => {
+			saveActionElement.disabled = false;
+
+			if (isSuccessResponse(callbackResponse)) {
+				displayEmployeeSavedAlertModal();
+
+				if ((callbackResponse.data != null)
+					&& (callbackResponse.data.id != null)
+					&& (callbackResponse.data.id.trim() !== "")) {
+
+
+					setElementId(callbackResponse.data.id.trim());
+				}
 			}
 		});
 	} 
@@ -54,15 +70,15 @@ function saveActionClick(event) {
 
 function validateSave(){
 
-	const lastName = getLastName();
-	if(lastName == null) {
-		displayError("Please provide a valid last name.");
+	const firstName = getFirstNameElement().value;
+	if(firstName.length == 0) {
+		displayError("Please provide a valid first name.")
 		return false;
 	}
 
-	const firstName = getFirstName();
-	if(firstName == null) {
-		displayError("Please provide a valid first name.")
+	const lastName = getLastNameElement().value;
+	if(lastName.length == 0) {
+		displayError("Please provide a valid last name.");
 		return false;
 	}
 
