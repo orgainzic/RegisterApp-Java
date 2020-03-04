@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		elevatedOptions.style.desplay = "none";
 	}
 	
-	viewStartTransactionElement().addEventListener("click", displayError(errorMessage);
+	viewStartTransactionElement().addEventListener("click", displayError(errorMessage));
 	viewProductsElement().addEventListener("click", productsElementActionClickHandler);
 	viewCreateEmployeeElement().addEventListener("click", createEmployeeElementActionClickHandler);
 	viewSalesReportElement().addEventListener("click", displayError(errorMessage));
@@ -31,7 +31,7 @@ function signOutActionClickHandler() {
 			window.location.replace("/");
 		}
 	});
-	
+}	
 function signOutActionClickHandler() {
 	ajaxDelete("/api/signOut", (callbackResponse) => {
 		if ((callbackResponse.data != null)
@@ -43,22 +43,22 @@ function signOutActionClickHandler() {
 			window.location.replace("/");
 		}
 	});
-	
+}
 function toggleButtonsElement() {
-	return document.getElementById("elevatedAccess";
+	return document.getElementById("elevatedAccess");
 }
 function getStartTransactionElement() {
-	return document.getElementById("StartTransaction");
+	return document.getElementById("startTransaction");
 }
 function getViewProductsElement() {
-	return document.getElementById("ViewProducts");
+	return document.getElementById("viewProducts");
 }
 function getCreateEmployeeElement() {
-	return document.getElementById("CreateEmployee");
+	return document.getElementById("createEmployee");
 }
 function getSalesReportElement() {
-	return document.getElementById("SalesReport");
+	return document.getElementById("salesReport");
 }
 function getCashierReportElement() {
-	return document.getElementById("CashierReport");
+	return document.getElementById("cashierReport");
 }
