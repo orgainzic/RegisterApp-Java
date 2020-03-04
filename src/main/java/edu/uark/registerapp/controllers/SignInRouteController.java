@@ -26,9 +26,7 @@ public class SignInRouteController extends BaseRouteController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/")
 	public ModelAndView start(@RequestParam final Map<String, String> queryParameters) {
-		ModelAndView modelAndView = new ModelAndView();
-		
-		modelAndView.setViewName(ViewNames.SIGN_IN.getViewName());
+		ModelAndView modelAndView = new ModelAndView(ViewNames.SIGN_IN.getViewName());
 		return modelAndView;
 		/*try{
 			employeeQuery.execute();
