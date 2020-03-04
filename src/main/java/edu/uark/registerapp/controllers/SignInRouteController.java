@@ -22,9 +22,10 @@ import edu.uark.registerapp.controllers.enums.ViewNames;
 import edu.uark.registerapp.models.api.EmployeeSignIn;
 
 @Controller
+@RequestMapping(value = "/")
 public class SignInRouteController extends BaseRouteController {
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/")
+	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView start(@RequestParam final Map<String, String> queryParameters) {
 		ModelAndView modelAndView = new ModelAndView(ViewNames.SIGN_IN.getViewName());
 		return modelAndView;
@@ -38,7 +39,7 @@ public class SignInRouteController extends BaseRouteController {
 		*/
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public ModelAndView performSignIn(
 		EmployeeSignIn employeeSignIn, HttpServletRequest request
 	) {
