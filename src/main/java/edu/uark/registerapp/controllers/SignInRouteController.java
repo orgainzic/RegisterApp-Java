@@ -27,13 +27,17 @@ public class SignInRouteController extends BaseRouteController {
 	@RequestMapping(method = RequestMethod.GET, value = "/")
 	public ModelAndView start(@RequestParam final Map<String, String> queryParameters) {
 		ModelAndView modelAndView = new ModelAndView();
-		try{
+		
+		modelAndView.setViewName(ViewNames.SIGN_IN.getViewName());
+		return modelAndView;
+		/*try{
 			employeeQuery.execute();
 			modelAndView.setViewName(ViewNames.SIGN_IN.getViewName());
 		}catch(NotFoundException e){
 			modelAndView.setViewName(ViewNames.EMPLOYEE_DETAIL.getViewName());
 		}
 		return modelAndView;
+		*/
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
