@@ -19,6 +19,7 @@ import edu.uark.registerapp.commands.exceptions.NotFoundException;
 import edu.uark.registerapp.commands.exceptions.UnprocessableEntityException;
 import edu.uark.registerapp.controllers.enums.ViewModelNames;
 import edu.uark.registerapp.controllers.enums.ViewNames;
+import edu.uark.registerapp.models.api.Employee;
 import edu.uark.registerapp.models.api.EmployeeSignIn;
 
 @Controller
@@ -33,6 +34,7 @@ public class SignInRouteController extends BaseRouteController {
 			modelAndView.setViewName(ViewNames.SIGN_IN.getViewName());
 		}catch(NotFoundException e){
 			modelAndView.setViewName(ViewNames.EMPLOYEE_DETAIL.getViewName());
+			modelAndView.addObject("employee", new Employee());
 		}
 		return modelAndView;
 		
