@@ -67,14 +67,7 @@ public class EmployeeRestController extends BaseRestController {
 
 		System.out.println("STEP 10");
 		if (isInitialEmployee){
-			System.out.println("STEP 11");
-			createdEmployee
-				.setRedirectUrl(
-					ViewNames.SIGN_IN.getRoute().concat(
-						this.buildInitialQueryParameter(
-							QueryParameterNames.EMPLOYEE_ID.getValue(),
-							createdEmployee.getEmployeeId())));
-			System.out.println(createdEmployee.getRedirectUrl());
+			return this.redirectUserNotElevated(request, response);
 		}else{
 			System.out.println("STEP 12");
 			return createdEmployee;
