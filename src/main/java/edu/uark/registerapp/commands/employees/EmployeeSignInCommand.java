@@ -3,6 +3,8 @@ package edu.uark.registerapp.commands.employees;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.cert.PKIXRevocationChecker.Option;
+import java.util.Arrays;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import java.util.UUID;
@@ -56,14 +58,17 @@ public class EmployeeSignInCommand implements VoidCommandInterface {
                     EmployeeHelper.padEmployeeId(Integer.parseInt(
                         this.employeeSignIn.getEmployeeId())))).get().getPassword())){
                             // do this if password matches
-                }
-                */
-            if (EmployeeHelper.hashPassword(this.employeeSignIn.getPassword()).equals(
-                this.employeeRepository.findByEmployeeId(Integer.parseInt(
-                    EmployeeHelper.padEmployeeId(Integer.parseInt(
-                        this.employeeSignIn.getEmployeeId())))).get().getPassword().getBytes("UTF-8")){
-                            // do this if password matches
-                } else {
+                }*/
+            final Optional<EmployeeEntity> queriedEmployee = 
+                this.employeeRepository.findByEmployeeId(Integer.parseInt(this.employeeSignIn.getEmployeeId()));
+            
+            byte[] requestPassword = this.employeeSignIn.getPassword().getBytes();
+            boolean passwordsMatch = Arrays.equals(queriedEmployee.get().getPassword(), requestPassword);
+            if (passwordsMatch)
+            {
+                // do this if passwords match
+            }
+            else {
                 throw new ConflictException("password");
             }
         }

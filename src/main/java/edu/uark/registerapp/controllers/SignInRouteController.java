@@ -30,6 +30,7 @@ public class SignInRouteController extends BaseRouteController {
 	public ModelAndView start(@RequestParam final Map<String, String> queryParameters) {
 		ModelAndView modelAndView = new ModelAndView();
 		try{
+			System.out.println("Testing.........");
 			employeeQuery.execute();
 			modelAndView.setViewName(ViewNames.SIGN_IN.getViewName());
 		}catch(NotFoundException e){
