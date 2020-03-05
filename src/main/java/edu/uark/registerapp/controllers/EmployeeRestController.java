@@ -74,6 +74,7 @@ public class EmployeeRestController extends BaseRestController {
 						this.buildInitialQueryParameter(
 							QueryParameterNames.EMPLOYEE_ID.getValue(),
 							createdEmployee.getEmployeeId())));
+			System.out.println(createdEmployee.getRedirectUrl());
 		}else{
 			System.out.println("STEP 12");
 			return createdEmployee;
