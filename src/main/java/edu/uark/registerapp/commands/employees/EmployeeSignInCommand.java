@@ -50,13 +50,20 @@ public class EmployeeSignInCommand implements VoidCommandInterface {
         if (this.employeeRepository.existsByEmployeeId(Integer.parseInt(
             EmployeeHelper.padEmployeeId(Integer.parseInt(
                 this.employeeSignIn.getEmployeeId()))))){
+            /*
             if (EmployeeHelper.hashPassword(this.employeeSignIn.getPassword()).equals(
                 this.employeeRepository.findByEmployeeId(Integer.parseInt(
                     EmployeeHelper.padEmployeeId(Integer.parseInt(
                         this.employeeSignIn.getEmployeeId())))).get().getPassword())){
                             // do this if password matches
                 }
-            else {
+                */
+            if (EmployeeHelper.hashPassword(this.employeeSignIn.getPassword()).equals(
+                this.employeeRepository.findByEmployeeId(Integer.parseInt(
+                    EmployeeHelper.padEmployeeId(Integer.parseInt(
+                        this.employeeSignIn.getEmployeeId())))).get().getPassword().getBytes("UTF-8")){
+                            // do this if password matches
+                } else {
                 throw new ConflictException("password");
             }
         }

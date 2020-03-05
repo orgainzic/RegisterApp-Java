@@ -8,17 +8,17 @@ function validateForm() {
 	let empPsw = document.signInForm.empPsw.value;
 
 	if (empId.length == 0)	{
-		alert("Employee ID should not be blank");
+		displayError("Employee ID should not be blank");
 		return false;
 	}
 
 	if (typeof empId == 'number')	{
-		alert("Employee ID should be numeric");
+		displayError("Employee ID should be numeric");
 		return false;
 	}
 
 	if (empPsw.length == 0)	{
-		alert("The password should not be blank");
+		displayError("The password should not be blank");
 		return false;
 	}
 
