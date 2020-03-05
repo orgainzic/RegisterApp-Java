@@ -50,6 +50,7 @@ public class EmployeeRestController extends BaseRestController {
 		}
 
 		if (!canCreateEmployeeResponse.getRedirectUrl().equals(StringUtils.EMPTY)) {
+			System.out.println("Umm here?");
 			return canCreateEmployeeResponse;
 		}
 
@@ -65,6 +66,7 @@ public class EmployeeRestController extends BaseRestController {
 							QueryParameterNames.EMPLOYEE_ID.getValue(),
 							createdEmployee.getEmployeeId())));
 		}else{
+			System.out.println("I returned here!");
 			return createdEmployee;
 		}
 		System.out.println("RedirectUrl: " + createdEmployee.getRedirectUrl());
@@ -78,7 +80,7 @@ public class EmployeeRestController extends BaseRestController {
 		final HttpServletRequest request,
 		final HttpServletResponse response
 	) {
-
+		System.out.println("I'm running here!!!!!!!!");
 		/*
 		try{
 			validateActiveUserCommand.setSessionKey(request.getSession().getId()).execute();
