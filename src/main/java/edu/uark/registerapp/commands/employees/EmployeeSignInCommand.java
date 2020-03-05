@@ -56,7 +56,7 @@ public class EmployeeSignInCommand implements VoidCommandInterface {
             EmployeeEntity ee = employeeRepository.findByEmployeeId(Integer.parseInt(employeeSignIn.getEmployeeId())).get();
             System.out.println(ee.getPassword());
             System.out.println(EmployeeHelper.hashPassword(employeeSignIn.getPassword()));
-            if(){
+            if(Arrays.equals(ee.getPassword(), EmployeeHelper.hashPassword(employeeSignIn.getPassword()))){
 
             }else{
 
