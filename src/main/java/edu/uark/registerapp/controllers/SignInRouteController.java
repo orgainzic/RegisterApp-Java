@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,9 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.uark.registerapp.commands.employees.ActiveEmployeeExistsQuery;
 import edu.uark.registerapp.commands.employees.EmployeeSignInCommand;
-import edu.uark.registerapp.commands.exceptions.ConflictException;
 import edu.uark.registerapp.commands.exceptions.NotFoundException;
-import edu.uark.registerapp.commands.exceptions.UnprocessableEntityException;
 import edu.uark.registerapp.controllers.enums.ViewModelNames;
 import edu.uark.registerapp.controllers.enums.ViewNames;
 import edu.uark.registerapp.models.api.Employee;
@@ -49,11 +48,14 @@ public class SignInRouteController extends BaseRouteController {
 		// TODO: Use the credentials provided in the request body
 		//  and the "id" property of the (HttpServletRequest)request.getSession() variable
 		//  to sign in the user
+
 		ModelAndView modelAndView = new ModelAndView();
 
 		try{
 			employeeSignInCommand.setCurrentSessionKey(request.getSession().getId());
 			employeeSignInCommand.setEmployeeSignIn(employeeSignIn);
+			System.out.println("employeeID: " + employeeSignIn.getEmployeeId());
+			System.out.println("employeePsw: " + employeeSignIn.getPassword());
 			employeeSignInCommand.execute();
 		}catch(Exception e){
 			modelAndView.setViewName(ViewNames.SIGN_IN.getViewName());

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.uark.registerapp.commands.activeUsers.ValidateActiveUserCommand;
 import edu.uark.registerapp.commands.employees.ActiveEmployeeExistsQuery;
 import edu.uark.registerapp.commands.employees.EmployeeCreateCommand;
 import edu.uark.registerapp.commands.employees.EmployeeUpdateCommand;
@@ -50,6 +49,7 @@ public class EmployeeRestController extends BaseRestController {
 		}
 
 		if (!canCreateEmployeeResponse.getRedirectUrl().equals(StringUtils.EMPTY)) {
+			System.out.println("Umm here.");
 			return canCreateEmployeeResponse;
 		}
 
@@ -65,9 +65,10 @@ public class EmployeeRestController extends BaseRestController {
 							QueryParameterNames.EMPLOYEE_ID.getValue(),
 							createdEmployee.getEmployeeId())));
 		}else{
+			System.out.println("I returned here!");
 			return createdEmployee;
 		}
-
+		System.out.println("RedirectUrl: " + createdEmployee.getRedirectUrl());
 		return createdEmployee.setIsInitialEmployee(isInitialEmployee);
 	}
 
@@ -78,7 +79,7 @@ public class EmployeeRestController extends BaseRestController {
 		final HttpServletRequest request,
 		final HttpServletResponse response
 	) {
-
+		System.out.println("I'm running here!!!!!!!!");
 		/*
 		try{
 			validateActiveUserCommand.setSessionKey(request.getSession().getId()).execute();

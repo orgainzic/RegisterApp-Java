@@ -22,6 +22,7 @@
 		</div>
 
 		<div class="inputContent">
+			<form action="/" method="POST" name="employeeDeatailsForm" onsubmit="return true;">
 			<table id="employeeDetails">
 				<tbody>
 					<tr class="hidden">
@@ -92,6 +93,7 @@
 			</div>
 		</div>
 	</div>
+</form>
 
 	<div class="footer" th:classappend="${employee.isInitialEmployee} ? hidden : ''">
 		<img id="signOutImage" src="Sign-Out.png" alt="Sign Out" class="footer" />

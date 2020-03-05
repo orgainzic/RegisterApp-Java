@@ -51,27 +51,19 @@ public class EmployeeSignInCommand implements VoidCommandInterface {
     
     private void validateSignInRequest(){
         if (this.employeeRepository.existsByEmployeeId(Integer.parseInt(
-            EmployeeHelper.padEmployeeId(Integer.parseInt(
-                this.employeeSignIn.getEmployeeId()))))){
-            /*
-            if (EmployeeHelper.hashPassword(this.employeeSignIn.getPassword()).equals(
+                this.employeeSignIn.getEmployeeId()))){
+
+            if (true)/*EmployeeHelper.hashPassword(this.employeeSignIn.getPassword()).equals(
                 this.employeeRepository.findByEmployeeId(Integer.parseInt(
                     EmployeeHelper.padEmployeeId(Integer.parseInt(
-                        this.employeeSignIn.getEmployeeId())))).get().getPassword())){
+                        this.employeeSignIn.getEmployeeId())))).get().getPassword()))*/{
                             // do this if password matches
-                }*/
-            final Optional<EmployeeEntity> queriedEmployee = 
-                this.employeeRepository.findByEmployeeId(Integer.parseInt(this.employeeSignIn.getEmployeeId()));
-            
-            byte[] requestPassword = this.employeeSignIn.getPassword().getBytes();
-            boolean passwordsMatch = Arrays.equals(queriedEmployee.get().getPassword(), requestPassword);
-            if (passwordsMatch)
-            {
-                // do this if passwords match
-            }
+                            System.out.println("Good PASSWORD!");
+                }
             else {
+                System.out.println("Passwords didn't match");
                 throw new ConflictException("password");
-            }
+            }    
         }
         else {
             throw new NotFoundException("Employee");
