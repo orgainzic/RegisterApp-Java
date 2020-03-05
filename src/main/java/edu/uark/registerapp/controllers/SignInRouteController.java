@@ -1,13 +1,12 @@
 package edu.uark.registerapp.controllers;
 
-import javax.servlet.http.HttpServletRequest;
-
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,7 +41,7 @@ public class SignInRouteController extends BaseRouteController {
 
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public ModelAndView performSignIn(
-		@RequestBody EmployeeSignIn employeeSignIn, HttpServletRequest request
+		EmployeeSignIn employeeSignIn, HttpServletRequest request, @RequestParam Map<String, String> body
 	) {
 		//request.getSession().getId();
 		// TODO: Use the credentials provided in the request body
@@ -51,7 +50,7 @@ public class SignInRouteController extends BaseRouteController {
 		
 		//employeeSignIn.setEmployeeId(request.getParameter("enpId"));
 		//employeeSignIn.setPassword(request.getParameter("enpPsw"));
-
+		System.out.println(body);
 		System.out.println("TESTEING: " + employeeSignIn.getEmployeeId());
 		System.out.println("TESTING: " + employeeSignIn.getPassword());
 
