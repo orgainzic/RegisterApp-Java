@@ -27,37 +27,47 @@ import edu.uark.registerapp.models.entities.EmployeeEntity;
 
 @RestController
 public class EmployeeRestController extends BaseRestController {
-	@RequestMapping(value = "/api/employee", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/api/employee", method = { RequestMethod.GET, RequestMethod.POST})
 	public @ResponseBody ApiResponse createEmployee(
 		@RequestBody final Employee employee,
 		final HttpServletRequest request,
 		final HttpServletResponse response
 	) {
+		System.out.println("STEP 1");
 		boolean isInitialEmployee = false;
 		ApiResponse canCreateEmployeeResponse;
 
 		try {
+			System.out.println("STEP 2");
 			// TODO: Query if any active employees exist
 			activeEmployeeExistsQuery.execute();
 
+			System.out.println("STEP 3");
 			canCreateEmployeeResponse =
 				this.redirectUserNotElevated(request, response);
+			System.out.println("STEP 4");
 
 		} catch (final NotFoundException e) {
+			System.out.println("STEP 5");
 			isInitialEmployee = true;
 			canCreateEmployeeResponse = new ApiResponse();
+			System.out.println("STEP 6");
 		}
 
+		System.out.println("STEP 7");
 		if (!canCreateEmployeeResponse.getRedirectUrl().equals(StringUtils.EMPTY)) {
-			System.out.println("Umm here.");
+			System.out.println("STEP 8");
 			return canCreateEmployeeResponse;
 		}
 
 		// TODO: Create an employee
-	
+		
+		System.out.println("STEP 9");
 		final Employee createdEmployee = employeeCreateCommand.setApiEmployee(employee).execute();
 
+		System.out.println("STEP 10");
 		if (isInitialEmployee){
+			System.out.println("STEP 11");
 			createdEmployee
 				.setRedirectUrl(
 					ViewNames.SIGN_IN.getRoute().concat(
@@ -65,10 +75,10 @@ public class EmployeeRestController extends BaseRestController {
 							QueryParameterNames.EMPLOYEE_ID.getValue(),
 							createdEmployee.getEmployeeId())));
 		}else{
-			System.out.println("I returned here!");
+			System.out.println("STEP 12");
 			return createdEmployee;
 		}
-		System.out.println("RedirectUrl: " + createdEmployee.getRedirectUrl());
+		System.out.println("STEP 13");
 		return createdEmployee.setIsInitialEmployee(isInitialEmployee);
 	}
 
@@ -79,8 +89,7 @@ public class EmployeeRestController extends BaseRestController {
 		final HttpServletRequest request,
 		final HttpServletResponse response
 	) {
-		System.out.println("I'm running here!!!!!!!!");
-		/*
+				/*
 		try{
 			validateActiveUserCommand.setSessionKey(request.getSession().getId()).execute();
 		} catch (UnauthorizedException e) {
