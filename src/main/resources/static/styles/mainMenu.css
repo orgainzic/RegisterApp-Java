@@ -1,0 +1,7 @@
+.mainMenuWrapper {
+	display: inline-block;
+}
+
+div.elevatedAccess {
+	display: none;
+}
