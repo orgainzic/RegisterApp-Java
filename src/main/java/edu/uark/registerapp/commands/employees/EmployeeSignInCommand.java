@@ -72,8 +72,7 @@ public class EmployeeSignInCommand implements VoidCommandInterface {
 
         final Optional<ActiveUserEntity> queriedActiveUser =
             this.activeUserRepository.findByEmployeeId(
-                UUID.fromString(EmployeeHelper.padEmployeeId(
-                    Integer.parseInt(this.employeeSignIn.getEmployeeId()))));
+                UUID.fromString(this.employeeSignIn.getEmployeeId()));
         
         if (queriedActiveUser.isPresent()){
             queriedActiveUser.get().setSessionKey(this.currentSessionKey);
@@ -84,10 +83,10 @@ public class EmployeeSignInCommand implements VoidCommandInterface {
             newActiveUser.setSessionKey(this.currentSessionKey);
             newActiveUser.setEmployeeId(UUID.fromString(this.employeeSignIn.getEmployeeId()));
             newActiveUser.setClassification(this.employeeRepository.findByEmployeeId(
-                Integer.parseInt(EmployeeHelper.padEmployeeId(Integer.parseInt(this.employeeSignIn.getEmployeeId())))
+                Integer.parseInt(this.employeeSignIn.getEmployeeId())
                 ).get().getClassification());
             newActiveUser.setName(this.employeeRepository.findByEmployeeId(
-                Integer.parseInt(EmployeeHelper.padEmployeeId(Integer.parseInt(this.employeeSignIn.getEmployeeId())))
+                Integer.parseInt(this.employeeSignIn.getEmployeeId())
                 ).get().getLastName());
             this.activeUserRepository.save(newActiveUser);
         }
