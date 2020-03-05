@@ -50,14 +50,14 @@ function createEmployeeClick(event) {
 }
 
 function salesReportClick(event) {
-	if((employee.user.role=="Shift Manager") || (employee.user.role=="General Manager")) {
+	if(( ActiveUserEntity.classification == "Shift Manager" ) || ( ActiveUserEntity.classification == "General Manager" )) {
 		$("div.elevatedAccess").show();
 	}
 		displayError("Functionality has not yet been implemented.");
 }
 
 function cashierReportClick(event) {
-	if((employee.user.role=="Shift Manager") || (employee.user.role=="General Manager")) {
+	if(( ActiveUserEntity.classification == "Shift Manager" ) || ( ActiveUserEntity.classification == "General Manager" )) {
 		$("div.elevatedAccess").show();
 	}
 		displayError("Functionality has not yet been implemented.");
