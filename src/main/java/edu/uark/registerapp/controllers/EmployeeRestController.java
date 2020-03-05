@@ -35,8 +35,6 @@ public class EmployeeRestController extends BaseRestController {
 	) {
 		boolean isInitialEmployee = false;
 		ApiResponse canCreateEmployeeResponse;
-		
-		System.out.println("First Employee password: " + employee.getPassword());
 
 		try {
 			// TODO: Query if any active employees exist
@@ -58,8 +56,6 @@ public class EmployeeRestController extends BaseRestController {
 		
 		final Employee createdEmployee = employeeCreateCommand.setApiEmployee(employee).execute();
 
-		System.out.println("SECOND EMPLOYEE PASS: " + createdEmployee.getPassword());
-		
 		if (isInitialEmployee){
 			return this.redirectUserNotElevated(request, response);
 		}else{

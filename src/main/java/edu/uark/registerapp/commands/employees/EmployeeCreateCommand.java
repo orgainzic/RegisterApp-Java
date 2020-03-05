@@ -24,6 +24,8 @@ public class EmployeeCreateCommand implements ResultCommandInterface<Employee> {
         if (this.checkIsInitialEmployee())  {
             this.apiEmployee.setClassification(701);
         }
+
+        
         EmployeeEntity employeeEntity = new EmployeeEntity(apiEmployee);
         //employeeEntity.setPassword(EmployeeHelper.hashPassword(apiEmployee.getPassword()));
         

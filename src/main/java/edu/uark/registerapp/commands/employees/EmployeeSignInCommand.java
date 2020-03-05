@@ -53,8 +53,13 @@ public class EmployeeSignInCommand implements VoidCommandInterface {
     
     private void validateSignInRequest(){
         if(employeeRepository.existsByEmployeeId(Integer.parseInt(employeeSignIn.getEmployeeId()))){
-            if(EmployeeHelper.hashPassword(employeeSignIn.getPassword()).equals(employeeRepository.findByEmployeeId(Integer.parseInt(employeeSignIn.getEmployeeId())).get().getPassword())){
+            EmployeeEntity ee = employeeRepository.findByEmployeeId(Integer.parseInt(employeeSignIn.getEmployeeId())).get();
+            System.out.println(ee.getPassword());
+            System.out.println(EmployeeHelper.hashPassword(employeeSignIn.getPassword()));
+            if(){
+
             }else{
+
                 throw new NotFoundException("Password");
             }
         }else{

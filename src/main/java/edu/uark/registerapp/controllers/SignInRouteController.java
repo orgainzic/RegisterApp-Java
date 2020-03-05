@@ -55,9 +55,6 @@ public class SignInRouteController extends BaseRouteController {
 		employeeSignIn.setEmployeeId(body.get("empId"));
 		employeeSignIn.setPassword(body.get("empPsw"));
 
-		System.out.println("TESTEING: " + employeeSignIn.getEmployeeId());
-		System.out.println("TESTING: " + employeeSignIn.getPassword());
-
 		ModelAndView modelAndView = new ModelAndView();
 		try{
 			employeeSignInCommand.setCurrentSessionKey(request.getSession().getId());
