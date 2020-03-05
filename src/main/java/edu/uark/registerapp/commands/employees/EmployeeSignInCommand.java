@@ -60,9 +60,10 @@ public class EmployeeSignInCommand implements VoidCommandInterface {
                             // do this if password matches
                             System.out.println("Good PASSWORD!");
                 }
-            final Optional<EmployeeEntity> queriedEmployee = 
-                this.employeeRepository.findByEmployeeId(Integer.parseInt(this.employeeSignIn.getEmployeeId()));
-            
+            else {
+                System.out.println("Passwords didn't match");
+                throw new ConflictException("password");
+            }    
         }
         else {
             throw new NotFoundException("Employee");
