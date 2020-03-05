@@ -54,15 +54,6 @@ public class EmployeeRestController extends BaseRestController {
 			return canCreateEmployeeResponse;
 		}
 
-		/*
-		try{
-			validateActiveUserCommand.setSessionKey(request.getSession().getId()).execute();
-		} catch (UnauthorizedException e) {
-			response.setStatus(302);
-			return new ApiResponse().setRedirectUrl(ViewNames.SIGN_IN.getRoute().concat(this.buildAdditionalQueryParameter(QueryParameterNames.ERROR_CODE.getValue(), "StopitGetsomehelp")));
-		}
-		*/
-
 		// TODO: Create an employee
 	
 		final Employee createdEmployee = employeeCreateCommand.setApiEmployee(employee).execute();
