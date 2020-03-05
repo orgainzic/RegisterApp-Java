@@ -51,8 +51,7 @@ public class EmployeeSignInCommand implements VoidCommandInterface {
     
     private void validateSignInRequest(){
         if (this.employeeRepository.existsByEmployeeId(Integer.parseInt(
-            EmployeeHelper.padEmployeeId(Integer.parseInt(
-                this.employeeSignIn.getEmployeeId()))))){
+                this.employeeSignIn.getEmployeeId()))){
             /*
             if (EmployeeHelper.hashPassword(this.employeeSignIn.getPassword()).equals(
                 this.employeeRepository.findByEmployeeId(Integer.parseInt(
