@@ -51,25 +51,25 @@ public class SignInRouteController extends BaseRouteController {
 		//employeeSignIn.setEmployeeId(request.getParameter("enpId"));
 		//employeeSignIn.setPassword(request.getParameter("enpPsw"));
 		System.out.println(body);
-		System.out.println("TESTING 5")
+		System.out.println("TESTING 5");
 		employeeSignIn.setEmployeeId(body.get("empId"));
 		employeeSignIn.setPassword(body.get("empPsw"));
 
 		ModelAndView modelAndView = new ModelAndView();
-		System.out.println("TESTING 6")
+		System.out.println("TESTING 6");
 		try{
-			System.out.println("TESTING 7")
+			System.out.println("TESTING 7");
 			employeeSignInCommand.setCurrentSessionKey(request.getSession().getId());
 			employeeSignInCommand.setEmployeeSignIn(employeeSignIn);
 			employeeSignInCommand.execute();
 		}catch(Exception e){
-			System.out.println("TESTING 8")
+			System.out.println("TESTING 8");
 			modelAndView.setViewName(ViewNames.SIGN_IN.getViewName());
 			modelAndView.addObject(ViewModelNames.ERROR_MESSAGE.getValue(), e.getMessage());
 			return modelAndView;
 		}
 
-		System.out.println("TESTING 9")
+		System.out.println("TESTING 9");
 		return new ModelAndView(
 			REDIRECT_PREPEND.concat(
 				ViewNames.MAIN_MENU.getRoute()));
