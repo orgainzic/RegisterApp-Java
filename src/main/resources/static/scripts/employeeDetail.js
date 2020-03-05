@@ -190,7 +190,7 @@ function getPasswordElement() {
 }
 
 function getPasswordVerify() {
-	return getPasswordVerifyElement.value;
+	return getPasswordVerifyElement().value;
 }
 
 function setPasswordVerify() {
