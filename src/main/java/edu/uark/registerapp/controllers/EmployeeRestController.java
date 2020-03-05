@@ -72,8 +72,6 @@ public class EmployeeRestController extends BaseRestController {
 			System.out.println("STEP 12");
 			return createdEmployee;
 		}
-		System.out.println("STEP 13");
-		return createdEmployee.setIsInitialEmployee(isInitialEmployee);
 	}
 
 	@RequestMapping(value = "/{employeeId}", method = RequestMethod.PATCH)
