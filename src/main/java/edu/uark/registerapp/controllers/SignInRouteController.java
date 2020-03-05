@@ -39,7 +39,7 @@ public class SignInRouteController extends BaseRouteController {
 		
 	}
 
-	@RequestMapping(value = "/sinin", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+	@RequestMapping(value = "/signin", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public ModelAndView performSignIn(
 		EmployeeSignIn employeeSignIn, HttpServletRequest request
 	) {
@@ -66,5 +66,6 @@ public class SignInRouteController extends BaseRouteController {
 
 	@Autowired
 	private ActiveEmployeeExistsQuery employeeQuery;
+	@Autowired
 	private EmployeeSignInCommand employeeSignInCommand;
 }
