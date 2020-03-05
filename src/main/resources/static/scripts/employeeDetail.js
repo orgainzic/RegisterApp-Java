@@ -22,9 +22,11 @@ function employeeIdKeypress(event) {
 
 // Save
 function saveActionClick(event) {
+	alert("Before if");
 	if (!validateSave()) {
 		return;
 	}
+	alert("After if");
 
 	const saveActionElement = event.target;
 	saveActionElement.disabled = true;
