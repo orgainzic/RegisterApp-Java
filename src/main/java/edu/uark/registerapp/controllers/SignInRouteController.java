@@ -47,8 +47,11 @@ public class SignInRouteController extends BaseRouteController {
 		// TODO: Use the credentials provided in the request body
 		//  and the "id" property of the (HttpServletRequest)request.getSession() variable
 		//  to sign in the user
+		employeeSignIn.setEmployeeId(request.getParameter("enpId"));
+		employeeSignIn.setPassword(request.getParameter("enpPsw"));
+
+		System.out.println("TESTEING: " + employeeSignIn.getEmployeeId());
 		System.out.println("TESTING: " + employeeSignIn.getPassword());
-		System.out.println("TESTING: " + employeeSignIn.getEmployeeId());
 
 		ModelAndView modelAndView = new ModelAndView();
 

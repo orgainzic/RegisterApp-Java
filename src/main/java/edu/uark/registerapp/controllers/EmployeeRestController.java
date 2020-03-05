@@ -38,38 +38,28 @@ public class EmployeeRestController extends BaseRestController {
 		ApiResponse canCreateEmployeeResponse;
 
 		try {
-			System.out.println("STEP 2");
 			// TODO: Query if any active employees exist
 			activeEmployeeExistsQuery.execute();
-
-			System.out.println("STEP 3");
+			
 			canCreateEmployeeResponse =
 				this.redirectUserNotElevated(request, response);
-			System.out.println("STEP 4");
 
 		} catch (final NotFoundException e) {
-			System.out.println("STEP 5");
 			isInitialEmployee = true;
 			canCreateEmployeeResponse = new ApiResponse();
-			System.out.println("STEP 6");
 		}
 
-		System.out.println("STEP 7");
 		if (!canCreateEmployeeResponse.getRedirectUrl().equals(StringUtils.EMPTY)) {
-			System.out.println("STEP 8");
 			return canCreateEmployeeResponse;
 		}
 
 		// TODO: Create an employee
 		
-		System.out.println("STEP 9");
 		final Employee createdEmployee = employeeCreateCommand.setApiEmployee(employee).execute();
 
-		System.out.println("STEP 10");
 		if (isInitialEmployee){
 			return this.redirectUserNotElevated(request, response);
 		}else{
-			System.out.println("STEP 12");
 			return createdEmployee;
 		}
 	}
