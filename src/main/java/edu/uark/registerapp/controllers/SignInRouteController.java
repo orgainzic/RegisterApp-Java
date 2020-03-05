@@ -29,7 +29,6 @@ public class SignInRouteController extends BaseRouteController {
 	public ModelAndView start(@RequestParam final Map<String, String> queryParameters) {
 		ModelAndView modelAndView = new ModelAndView();
 		try{
-			System.out.println("Testing.........");
 			employeeQuery.execute();
 			modelAndView.setViewName(ViewNames.SIGN_IN.getViewName());
 		}catch(NotFoundException e){
@@ -48,14 +47,14 @@ public class SignInRouteController extends BaseRouteController {
 		// TODO: Use the credentials provided in the request body
 		//  and the "id" property of the (HttpServletRequest)request.getSession() variable
 		//  to sign in the user
+		System.out.println("TESTING: " + employeeSignIn.getPassword());
+		System.out.println("TESTING: " + employeeSignIn.getEmployeeId();
 
 		ModelAndView modelAndView = new ModelAndView();
 
 		try{
 			employeeSignInCommand.setCurrentSessionKey(request.getSession().getId());
 			employeeSignInCommand.setEmployeeSignIn(employeeSignIn);
-			System.out.println("employeeID: " + employeeSignIn.getEmployeeId());
-			System.out.println("employeePsw: " + employeeSignIn.getPassword());
 			employeeSignInCommand.execute();
 		}catch(Exception e){
 			modelAndView.setViewName(ViewNames.SIGN_IN.getViewName());
