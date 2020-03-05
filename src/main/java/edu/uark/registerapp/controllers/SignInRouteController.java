@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,9 +48,11 @@ public class SignInRouteController extends BaseRouteController {
 		// TODO: Use the credentials provided in the request body
 		//  and the "id" property of the (HttpServletRequest)request.getSession() variable
 		//  to sign in the user
+
+		employeeSignIn.setEmployeeId(request.getParameter("empId"));
+		employeeSignIn.setPassword(request.getParameter("empPsw"));
+
 		ModelAndView modelAndView = new ModelAndView();
-		employeeSignIn.setEmployeeId(@RequestParam("empId"));
-		employeeSignIn.setPassword(@RequestParam("empPsw"));
 
 		try{
 			employeeSignInCommand.setCurrentSessionKey(request.getSession().getId());
