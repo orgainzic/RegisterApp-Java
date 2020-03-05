@@ -4,12 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	const viewCreateEmployeeElement = getCreateEmployeeElement();
 	const viewSalesReportElement = getSalesReportElement();
 	const viewCashierReportElement = getCashierReportElement();
-	const elevatedOptions = toggleButtonsElement();
 	
-	var displaySetting = elevatedOptions.style.display;
-	if(displaySetting == "block") {
-		elevatedOptions.style.desplay = "none";
-	}
+	
 	
 	getStartTransactionElement().addEventListener("click", startTransactionClick);
 	getProductsElement().addEventListener("click", productsClick);
@@ -38,6 +34,9 @@ function productsClick(event) {
 }
 
 function createEmployeeClick(event) {
+	if((ActiveUserEntity.classification=="Shift Manager") || (ActiveUserEntity.classification=="General Manager")) {
+		$("div.elevatedAccess").show();
+	}
 	ajaxDelete("/api/employee", (callbackResponse) => {
 		if ((callbackResponse.data != null)
 			&& (callbackResponse.data.redirectUrl != null)
@@ -51,14 +50,21 @@ function createEmployeeClick(event) {
 }
 
 function salesReportClick(event) {
+	if((employee.user.role=="Shift Manager") || (employee.user.role=="General Manager")) {
+		$("div.elevatedAccess").show();
+	}
 		displayError("Functionality has not yet been implemented.");
 }
 
 function cashierReportClick(event) {
+	if((employee.user.role=="Shift Manager") || (employee.user.role=="General Manager")) {
+		$("div.elevatedAccess").show();
+	}
 		displayError("Functionality has not yet been implemented.");
 }
 	
 function signOutActionClickHandler() {
+	
 	ajaxDelete("/api/signOut", (callbackResponse) => {
 		if ((callbackResponse.data != null)
 			&& (callbackResponse.data.redirectUrl != null)
@@ -70,9 +76,7 @@ function signOutActionClickHandler() {
 		}
 	});
 }
-function toggleButtonsElement() {
-	return document.getElementById("elevatedAccess");
-}
+
 function getStartTransactionElement() {
 	return document.getElementById("startTransaction");
 }
