@@ -67,7 +67,7 @@ public class EmployeeRestController extends BaseRestController {
 		}else{
 			return createdEmployee;
 		}
-
+		System.out.println(createdEmployee.getRedirectUrl());
 		return createdEmployee.setIsInitialEmployee(isInitialEmployee);
 	}
 

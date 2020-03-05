@@ -21,11 +21,11 @@
 			<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
 		</div>
 
-		<form action="/" method="POST" name="signInForm"></form> <!-- onsubmit="return validateForm();" class="inputContent">-->
+		<form action="/" method="POST" name="signInForm" onsubmit="return validateForm();" class="inputContent">
 			<label for="empId"><b>Employee ID</b></label>
 	        <input type="number" placeholder="Enter Employee ID" name="empId" required>
 
-	        <label for="psw"><b>Password</b></label>
+	        <label for="empPsw"><b>Password</b></label>
 	        <input type="password" placeholder="Enter Password" name="empPsw" required>
 
 	        <input type="submit" value="Sign In">
