@@ -28,7 +28,7 @@ public class EmployeeUpdateCommand implements ResultCommandInterface<Employee> {
     @Transactional
     public Employee updateEmployee()    {
 
-        final Optional<EmployeeEntity> employeeEntity = employeeRepository.findById(apiEmployee.getId());
+        final Optional<EmployeeEntity> employeeEntity = employeeRepository.findById(recordId);
         if (!employeeEntity.isPresent()) {
             throw new NotFoundException("Employee");
         }

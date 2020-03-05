@@ -14,11 +14,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import ch.qos.logback.core.joran.conditional.ElseAction;
 import edu.uark.registerapp.commands.exceptions.NotFoundException;
 import edu.uark.registerapp.controllers.enums.ViewModelNames;
 import edu.uark.registerapp.controllers.enums.ViewNames;
 import edu.uark.registerapp.models.api.Employee;
 import edu.uark.registerapp.models.entities.ActiveUserEntity;
+import edu.uark.registerapp.commands.employees.ActiveEmployeeExistsQuery;
+import edu.uark.registerapp.commands.activeUsers.ValidateActiveUserCommand;
+import edu.uark.registerapp.commands.employees.EmployeeQuery;
 
 @Controller
 @RequestMapping(value = "/employeeDetail")
@@ -28,11 +32,19 @@ public class EmployeeDetailRouteController extends BaseRouteController {
 		@RequestParam final Map<String, String> queryParameters,
 		final HttpServletRequest request
 	) {
-
-		// TODO: Logic to determine if the user associated with the current session
-		//  is able to create an employee
-
-		return new ModelAndView(ViewNames.EMPLOYEE_DETAIL.getViewName());
+		//ModelandView modelandView = new ModelandView();
+		validateActiveUserCommand.setSessionKey(request.getSession().getId());
+		if (!activeEmployeeExists() || this.isElevatedUser(this.getCurrentUser(request).get()))	{	//
+			//modelandView.setView(ViewNames.EMPLOYEE_DETAIL.getViewName());
+			return new ModelAndView(ViewNames.EMPLOYEE_DETAIL.getViewName());
+		}
+		else if(!validateActiveUser()) {
+			return new ModelAndView(REDIRECT_PREPEND.concat(ViewNames.SIGN_IN.getRoute())).addObject(ViewModelNames.ERROR_MESSAGE.getValue(), "No active users");
+		}
+		else {
+			return new ModelAndView(REDIRECT_PREPEND.concat(ViewNames.MAIN_MENU.getRoute())).addObject(ViewModelNames.ERROR_MESSAGE.getValue(), "No active users");
+		}
+		//return new ModelAndView(ViewNames.EMPLOYEE_DETAIL.getViewName());
 	}
 
 	@RequestMapping(value = "/{employeeId}", method = RequestMethod.GET)
@@ -50,15 +62,47 @@ public class EmployeeDetailRouteController extends BaseRouteController {
 		} else if (!this.isElevatedUser(activeUserEntity.get())) {
 			return this.buildNoPermissionsResponse();
 		}
+		else {
+			employeeQuery.setEmployeeId(employeeId);
+			Employee employee = employeeQuery.execute();
+			if(this.isElevatedUser(activeUserEntity.get())){
+				return new ModelAndView(ViewNames.EMPLOYEE_DETAIL.getViewName()).addObject(ViewModelNames.IS_ELEVATED_USER.getValue(), employee);
+			}else{
+				return new ModelAndView(ViewNames.EMPLOYEE_DETAIL.getViewName()).addObject(ViewModelNames.NOT_DEFINED.getValue(), employee);
+
+			}
+		}
 
 		// TODO: Query the employee details using the request route parameter
 		// TODO: Serve up the page
-		return new ModelAndView(ViewModelNames.EMPLOYEE_TYPES.getValue());
 	}
 
 	// Helper methods
-	private boolean activeUserExists() {
-		// TODO: Helper method to determine if any active users Exist
+	private boolean activeEmployeeExists() {
+		try {
+			activeEmployeeExistsQuery.execute();
+		}
+		catch (NotFoundException e) {
+			return false;
+		}
 		return true;
 	}
+
+	private boolean validateActiveUser()	{
+		try	{
+			validateActiveUserCommand.execute();
+		}
+		catch (NotFoundException e)	{
+			return false;
+		}
+		return true;
+	}
+
+	@Autowired
+	private ActiveEmployeeExistsQuery activeEmployeeExistsQuery;
+	@Autowired
+	private ValidateActiveUserCommand validateActiveUserCommand;
+	@Autowired
+	private EmployeeQuery employeeQuery;
+
 }

@@ -30,7 +30,6 @@ public class ProductDetailRouteController {
 	public ModelAndView startWithProduct(@PathVariable final UUID productId) {
 		final ModelAndView modelAndView =
 			new ModelAndView(ViewNames.PRODUCT_DETAIL.getViewName());
-
 		try {
 			modelAndView.addObject(
 				ViewModelNames.PRODUCT.getValue(),
