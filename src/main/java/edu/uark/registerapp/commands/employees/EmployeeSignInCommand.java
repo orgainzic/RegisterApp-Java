@@ -27,15 +27,9 @@ import edu.uark.registerapp.models.repositories.ActiveUserRepository;
 public class EmployeeSignInCommand implements VoidCommandInterface {
     @Override
     public void execute() {
-        System.out.println("TESTING 1");
         this.validateSignInProperties();
-
-        System.out.println("TESTING 2");
         this.validateSignInRequest();
-
-        System.out.println("TESTING 3");
         this.queryActiveUser();
-        System.out.println("TESTING 4");
 
     }
 
@@ -71,26 +65,33 @@ public class EmployeeSignInCommand implements VoidCommandInterface {
 
     @Transactional
     private void queryActiveUser(){
-
+        System.out.println("TESTING 1");
         final Optional<ActiveUserEntity> queriedActiveUser =
             this.activeUserRepository.findByEmployeeId(
                 UUID.fromString(this.employeeSignIn.getEmployeeId()));
-        
+        System.out.println("TESTING 2");
         if (queriedActiveUser.isPresent()){
+            System.out.println("TESTING 3");
             queriedActiveUser.get().setSessionKey(this.currentSessionKey);
             this.activeUserRepository.save(queriedActiveUser.get());
         }
         else{
+            System.out.println("TESTING 4");
             ActiveUserEntity newActiveUser = new ActiveUserEntity();
             newActiveUser.setSessionKey(this.currentSessionKey);
+            System.out.println("TESTING 5");
             newActiveUser.setEmployeeId(UUID.fromString(this.employeeSignIn.getEmployeeId()));
+            System.out.println("TESTING 6");
             newActiveUser.setClassification(this.employeeRepository.findByEmployeeId(
                 Integer.parseInt(this.employeeSignIn.getEmployeeId())
                 ).get().getClassification());
+            System.out.println("TESTING 7");
             newActiveUser.setName(this.employeeRepository.findByEmployeeId(
                 Integer.parseInt(this.employeeSignIn.getEmployeeId())
                 ).get().getLastName());
+            System.out.println("TESTING 8");
             this.activeUserRepository.save(newActiveUser);
+            System.out.println("TESTING 9");
         }
         return;
     }
