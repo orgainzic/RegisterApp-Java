@@ -74,30 +74,35 @@ function saveActionClick(event) {
 function validateSave(){
 
 	const firstName = getFirstNameElement().value;
+	console.log(firstName);
 	if(firstName.length == 0) {
 		displayError("Please provide a valid first name.")
 		return false;
 	}
 
 	const lastName = getLastNameElement().value;
+	console.log(lastName);
 	if(lastName.length == 0) {
 		displayError("Please provide a valid last name.");
 		return false;
 	}
 
 	const password = getPassword();
+	console.log(password);
 	if((password == null) || (password.length < 10)) {
 		displayError("Please enter a password with at least 10 characters.")
 		return false;
 	}
 
 	const passwordVerify = getPasswordVerify();
+	console.log(passwordVerify);
 	if(passwordVerify != password) {
 		displayError("Passwords don't match.")
 		return false;
 	}
 
 	const classification = getClassification();
+	console.log(classification);
 	if(classification == null) {
 		displayError("Please select a title.")
 		return false
