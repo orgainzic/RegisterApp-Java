@@ -27,15 +27,15 @@ import edu.uark.registerapp.models.repositories.ActiveUserRepository;
 public class EmployeeSignInCommand implements VoidCommandInterface {
     @Override
     public void execute() {
-        System.out.println("TESTING 1")
+        System.out.println("TESTING 1");
         this.validateSignInProperties();
 
-        System.out.println("TESTING 2")
+        System.out.println("TESTING 2");
         this.validateSignInRequest();
 
-        System.out.println("TESTING 3")
+        System.out.println("TESTING 3");
         this.queryActiveUser();
-        System.out.println("TESTING 4")
+        System.out.println("TESTING 4");
 
     }
 
