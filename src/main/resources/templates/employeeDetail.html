@@ -63,7 +63,7 @@
 					<tr th:class="${employee.isEmpty} ? hidden : ''">
 						<td class="label">Verify Password:</td>
 						<td>
-							<input id="employeePassword" placeholder="Verify your password" type="password" th:value="${!employee.isEmpty} ? ${employee.password} : ''" class="update" />
+							<input id="employeePasswordVerify" placeholder="Verify your password" type="password" th:value="${!employee.isEmpty} ? ${employee.password} : ''" class="update" />
 						</td>
 					</tr>
 					<tr>
@@ -94,7 +94,7 @@
 	</div>
 
 	<div class="footer" th:classappend="${employee.isInitialEmployee} ? hidden : ''">
-		<img id="signOutImage" src="../images/Sign-Out.png" alt="Sign Out" class="footer" />
+		<img id="signOutImage" src="/images/Sign-Out.png" alt="Sign Out" class="footer" />
 	</div>
 
 </body>

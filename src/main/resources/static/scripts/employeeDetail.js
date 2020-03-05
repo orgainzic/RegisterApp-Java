@@ -39,6 +39,7 @@ function saveActionClick(event) {
 		lastName: getLastName(),
 		title: getClassification(),
 		password: getPassword(),
+		passwordVerify: getPasswordVerify()
 	};
 
 	if (employeeIdIsDefined) {
@@ -85,6 +86,12 @@ function validateSave(){
 	const password = getPassword();
 	if((password == null) || (password.length < 10)) {
 		displayError("Please enter a password with at least 10 characters.")
+		return false;
+	}
+
+	const passwordVerify = getPasswordVerify();
+	if(passwordVerify != password) {
+		displayError("Passwords don't match.")
 		return false;
 	}
 
@@ -173,6 +180,18 @@ function setPassword() {
 
 function getPasswordElement() {
 	return document.getElementById("employeePassword");
+}
+
+function getPasswordVerify() {
+	return getPasswordVerifyElement.value;
+}
+
+function setPasswordVerify() {
+	return getPasswordVerifyElement.value = passwordVerify;
+}
+
+function getPasswordVerifyElement(){
+	return document.getElementById("employeePasswordVerify");
 }
 
 function getClassification() {
