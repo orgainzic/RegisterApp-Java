@@ -28,9 +28,12 @@ public class ActiveUserDeleteCommand implements VoidCommandInterface {
             throw new NotFoundException("ActiveUserEntity");
         }
     }
-
+    
     // Properties
     private String currentSessionKey;
+    public void setCurrentSessionKey(String key){
+        this.currentSessionKey = key;
+    }
 
     @Autowired
     private ActiveUserRepository activeUserRepository;

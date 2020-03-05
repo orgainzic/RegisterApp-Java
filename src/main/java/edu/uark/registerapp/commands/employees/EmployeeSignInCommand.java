@@ -94,7 +94,13 @@ public class EmployeeSignInCommand implements VoidCommandInterface {
 
     // Properties
     private EmployeeSignIn employeeSignIn;
+    public void setEmployeeSignIn(EmployeeSignIn ESI){
+        this.employeeSignIn = ESI;
+    }
     private String currentSessionKey;
+    public void setCurrentSessionKey(String CSK){
+        this.currentSessionKey = CSK;
+    }
 
     @Autowired
     private EmployeeRepository employeeRepository;
