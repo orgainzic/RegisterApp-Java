@@ -4,10 +4,11 @@
 	<title>Register - Main Menu</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 
-	<link rel="stylesheet" type="text/css" href="/styles/master.css">
+	<link rel="stylesheet" type="text/css" href="../static/styles/master.css">
+	<link rel="stylesheet" type="text/css" href="../static/styles/mainMenu.css">
 
-	<script type="text/javascript" src="/scripts/master.js" defer></script>
-	<script type="text/javascript" src="/scripts/mainMenu.js" defer></script>
+	<script type="text/javascript" src="../static/scripts/master.js" defer></script>
+	<script type="text/javascript" src="../static/scripts/mainMenu.js" defer></script>
 </head>
 
 <body>
@@ -20,8 +21,40 @@
 		<div id="error" th:class="${#strings.isEmpty(errorMessage)} ? hidden : ''">
 			<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
 		</div>
-
-		<!-- TODO: Add the various action button elements -->
+		<div class="mainMenuWrapper">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<button type="button" class="action" id="startTransaction">Start Transaction</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button type="button" class="action" id="viewProducts">View Products</button>
+						</td>
+					</tr>
+					<div sec:authorize="employeeClassification.isElevatedUser(employee.getClassification())">
+				<!--<div th:class="${EmployeeClassification.isElevatedUser()} ? ${employee.classification}: 'hidden'"> -->
+						<tr>
+							<td>
+								<button type="button" class="action" id="createEmployee">Create Employee</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button type="button" class="action" id="salesReport">Sales Report</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button type="button" class="action" id="cashierReport">Cashier Report</button>
+							</td>
+						</tr>	
+					</div>
+				</tbody>
+			</table>
+		</div>
 	</div>
 
 	<div class="hidden">
@@ -41,7 +74,7 @@
 	</div>
 
 	<div class="footer">
-		<img id="signOutImage" src="/images/Sign-Out.png" alt="Sign Out" class="footer" />
+		<img src="../images/Sign-Out.png" id="signOutImage" alt="Sign Out" class="footer" />
 	</div>
 		
 </body>
