@@ -25,7 +25,7 @@ function startTransactionClick(event) {
 }
 
 function productsClick(event) {
-	ajaxDelete("/api/products", (callbackResponse) => {
+	ajaxDelete("/api/productListing", (callbackResponse) => {
 		if ((callbackResponse.data != null)
 			&& (callbackResponse.data.redirectUrl != null)
 			&& (callbackResponse.data.redirectUrl !== "")) {
