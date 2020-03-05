@@ -68,7 +68,7 @@ public class EmployeeSignInCommand implements VoidCommandInterface {
         System.out.println("TESTING 1");
         final Optional<ActiveUserEntity> queriedActiveUser =
             this.activeUserRepository.findByEmployeeId(
-                UUID.fromString(this.employeeSignIn.getEmployeeId()));
+                UUID.fromString(EmployeeHelper.padEmployeeId(Integer.parseInt(employeeSignIn.getEmployeeId()))));
         System.out.println("TESTING 2");
         if (queriedActiveUser.isPresent()){
             System.out.println("TESTING 3");
