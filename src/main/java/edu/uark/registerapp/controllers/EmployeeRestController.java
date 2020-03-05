@@ -39,7 +39,7 @@ public class EmployeeRestController extends BaseRestController {
 
 		try {
 			// TODO: Query if any active employees exist
-			// activeEmployeeExistsQuery.execute();
+			activeEmployeeExistsQuery.execute();
 
 			canCreateEmployeeResponse =
 				this.redirectUserNotElevated(request, response);
