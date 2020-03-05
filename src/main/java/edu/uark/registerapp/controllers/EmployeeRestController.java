@@ -34,7 +34,6 @@ public class EmployeeRestController extends BaseRestController {
 		final HttpServletRequest request,
 		final HttpServletResponse response
 	) {
-
 		boolean isInitialEmployee = false;
 		ApiResponse canCreateEmployeeResponse;
 

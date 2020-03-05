@@ -23,10 +23,9 @@ import edu.uark.registerapp.models.api.Employee;
 import edu.uark.registerapp.models.api.EmployeeSignIn;
 
 @Controller
-@RequestMapping(value = "/")
 public class SignInRouteController extends BaseRouteController {
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView start(@RequestParam final Map<String, String> queryParameters) {
 		ModelAndView modelAndView = new ModelAndView();
 		try{
@@ -40,7 +39,7 @@ public class SignInRouteController extends BaseRouteController {
 		
 	}
 
-	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+	@RequestMapping(value = "/sinin", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public ModelAndView performSignIn(
 		EmployeeSignIn employeeSignIn, HttpServletRequest request
 	) {
