@@ -65,12 +65,15 @@ public class EmployeeRestController extends BaseRestController {
 						this.buildInitialQueryParameter(
 							QueryParameterNames.EMPLOYEE_ID.getValue(),
 							createdEmployee.getEmployeeId())));
+			canCreateEmployeeResponse.setRedirectUrl(StringUtils.EMPTY);
+			createdEmployee.setIsInitialEmployee(isInitialEmployee);
+			return canCreateEmployeeResponse;
 		}else{
 			System.out.println("I returned here!");
 			return createdEmployee;
 		}
-		System.out.println("RedirectUrl: " + createdEmployee.getRedirectUrl());
-		return createdEmployee.setIsInitialEmployee(isInitialEmployee);
+		//System.out.println("RedirectUrl: " + createdEmployee.getRedirectUrl());
+		//return createdEmployee.setIsInitialEmployee(isInitialEmployee);
 	}
 
 	@RequestMapping(value = "/{employeeId}", method = RequestMethod.PATCH)
