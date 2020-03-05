@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import java.security.cert.PKIXRevocationChecker.Option;
 import java.util.Arrays;
 import java.util.Optional;
+
+import javax.management.InvalidAttributeValueException;
 import javax.transaction.Transactional;
 import java.util.UUID;
 import org.apache.commons.lang3.StringUtils;
@@ -50,22 +52,12 @@ public class EmployeeSignInCommand implements VoidCommandInterface {
     }
     
     private void validateSignInRequest(){
-        if (this.employeeRepository.existsByEmployeeId(Integer.parseInt(
-                this.employeeSignIn.getEmployeeId()))){
-
-            if (true)/*EmployeeHelper.hashPassword(this.employeeSignIn.getPassword()).equals(
-                this.employeeRepository.findByEmployeeId(Integer.parseInt(
-                    EmployeeHelper.padEmployeeId(Integer.parseInt(
-                        this.employeeSignIn.getEmployeeId())))).get().getPassword()))*/{
-                            // do this if password matches
-                            System.out.println("Good PASSWORD!");
-                }
-            else {
-                System.out.println("Passwords didn't match");
-                throw new ConflictException("password");
-            }    
-        }
-        else {
+        if(employeeRepository.existsByEmployeeId(Integer.parseInt(employeeSignIn.getEmployeeId()))){
+            if(EmployeeHelper.hashPassword(employeeSignIn.getPassword()).equals(employeeRepository.findByEmployeeId(Integer.parseInt(employeeSignIn.getEmployeeId())).get().getPassword())){
+            }else{
+                throw new NotFoundException("Password");
+            }
+        }else{
             throw new NotFoundException("Employee");
         }
     }

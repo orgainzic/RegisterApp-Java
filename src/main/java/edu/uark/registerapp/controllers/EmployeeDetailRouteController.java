@@ -32,11 +32,10 @@ public class EmployeeDetailRouteController extends BaseRouteController {
 		@RequestParam final Map<String, String> queryParameters,
 		final HttpServletRequest request
 	) {
-		ModelandView modelandView = new ModelandView();
+		
 		validateActiveUserCommand.setSessionKey(request.getSession().getId());
 		if (!activeEmployeeExists() || this.isElevatedUser(this.getCurrentUser(request).get()))	{
-			return modelandView.setView(ViewNames.EMPLOYEE_DETAIL.getViewName());
-			//return new ModelAndView(ViewNames.EMPLOYEE_DETAIL.getViewName());
+			return new ModelAndView(ViewNames.EMPLOYEE_DETAIL.getViewName());
 		}
 		else if(!validateActiveUser()) {
 			return new ModelAndView(REDIRECT_PREPEND.concat(ViewNames.SIGN_IN.getRoute())).addObject(ViewModelNames.ERROR_MESSAGE.getValue(), "No active users");
