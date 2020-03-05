@@ -1,6 +1,8 @@
 div.header {
-	padding-top: 1px;
-	text-align: right;
+	padding: 20px;
+	text-align: center;
+	background: #20eb42;
+	color: #f529da;
 }
 
 div.main {
@@ -9,7 +11,7 @@ div.main {
 }
 
 h1.primary-message {
-	font-size: 30px;
+	font-size: 60px;
 	text-align: center;
 }
 
@@ -69,7 +71,7 @@ input.update {
 	border: solid;
 	line-height: 1.75em;
 	width: calc(100% - 6px);
-	background-color: #FFFFFF;
+	background-color: rgb(250, 243, 249);
 	font-size: 16px;
 	padding: 0em .25em 0em .25em;
 }
@@ -90,7 +92,7 @@ input.submit {
     color: #000000;
     border: solid;
     padding: 10px;
-    background-color: #FFFFFF;
+    background-color: rgb(238, 21, 209);
     cursor: default;
 	text-decoration: none;
 }
@@ -99,7 +101,7 @@ button.action:hover,
 a.button:hover,
 input.submit:hover {
     cursor: pointer;
-    color: #ffffff;
+    color: rgb(238, 21, 209);
     background-color: #000000;
 }
 
@@ -107,7 +109,7 @@ input.submit:hover {
 table {
 	border-spacing: 1;
 	border-collapse: collapse;
-	background: white;
+	background: rgb(238, 21, 209);
 	border-radius: 10px;
 	overflow: hidden;
 	width: 100%;
@@ -144,7 +146,7 @@ table td.label {
 tbody tr {
 	font-family: OpenSans-Regular;
 	font-size: 16px;
-	color: #808080;
+	color: #20eb42;
 	line-height: 1.2;
 	font-weight: unset;
 }
@@ -175,7 +177,7 @@ table.hidden, tr.hidden, th.hidden, td.hidden {
 	width: fit-content;
 	width: -webkit-fit-content;
 	width: -moz-fit-content;
-	background: #EEE;
+	background: rgb(238, 21, 209);
 	opacity: 0.8;
 }
 
@@ -184,6 +186,6 @@ table.hidden, tr.hidden, th.hidden, td.hidden {
 .animate-opacity-show{animation:opac 0.8s}@keyframes opac{from{opacity:0} to{opacity:1}}
 
 .gray-blue {
-	color: #607D8B!important;
+	color: rgb(6, 235, 56)!important;
 }
 /* End product saved alert modal */
