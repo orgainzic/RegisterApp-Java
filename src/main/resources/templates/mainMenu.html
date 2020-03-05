@@ -18,18 +18,42 @@
 		
 	<div id="main" class="main">
 		<div id="error" th:class="${#strings.isEmpty(errorMessage)} ? hidden : ''">
-			<h4 id="errorMessage" class="error-message" th:text="${Functionality has not yet been implemented.}"></h4>
+			<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
 		</div>
-
-		<button type="button" class="action" id="StartTransaction">Start transaction</button>
-		<button type="button" class="action" id="ViewProducts">View Products</button>
-		<!-- TODO:: Proper Manager Access Display -->
-		<div id="elevatedAccess">
-			<button type="button" class="action" id="CreateEmployee">Create Employee</button>
-			<button type="button" class="action" id="SalesReport">Sales Report</button>
-			<button type="button" class="action" id="CashierReport">Cashier Report</button>
+		<div class="mainMenuWrapper">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<button type="button" class="action" id="startTransaction">Start Transaction</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button type="button" class="action" id="viewProducts">View Products</button>
+						</td>
+					</tr>
+					
+					<div class="elevatedAccess">
+						<tr>
+							<td>
+								<button type="button" class="action" id="createEmployee">Create Employee</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button type="button" class="action" id="salesReport">Sales Report</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button type="button" class="action" id="cashierReport">Cashier Report</button>
+							</td>
+						</tr>	
+					</div>
+				</tbody>
+			</table>
 		</div>
-		
 	</div>
 
 	<div class="hidden">
@@ -49,7 +73,7 @@
 	</div>
 
 	<div class="footer">
-		<button type="button" id="signOutImage" src="../images/Sign-Out.png" alt="Sign Out" class="footer" />
+		<img src="../images/Sign-Out.png" id="signOutImage" alt="Sign Out" class="footer" />
 	</div>
 		
 </body>
