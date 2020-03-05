@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,20 +42,20 @@ public class SignInRouteController extends BaseRouteController {
 
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public ModelAndView performSignIn(
-		EmployeeSignIn employeeSignIn, HttpServletRequest request
+		@RequestBody EmployeeSignIn employeeSignIn, HttpServletRequest request
 	) {
 		//request.getSession().getId();
 		// TODO: Use the credentials provided in the request body
 		//  and the "id" property of the (HttpServletRequest)request.getSession() variable
 		//  to sign in the user
-		employeeSignIn.setEmployeeId(request.getParameter("enpId"));
-		employeeSignIn.setPassword(request.getParameter("enpPsw"));
+		
+		//employeeSignIn.setEmployeeId(request.getParameter("enpId"));
+		//employeeSignIn.setPassword(request.getParameter("enpPsw"));
 
 		System.out.println("TESTEING: " + employeeSignIn.getEmployeeId());
 		System.out.println("TESTING: " + employeeSignIn.getPassword());
 
 		ModelAndView modelAndView = new ModelAndView();
-
 		try{
 			employeeSignInCommand.setCurrentSessionKey(request.getSession().getId());
 			employeeSignInCommand.setEmployeeSignIn(employeeSignIn);
