@@ -27,9 +27,8 @@ import edu.uark.registerapp.models.api.Employee;
 import edu.uark.registerapp.models.entities.EmployeeEntity;
 
 @RestController
-@RequestMapping(value = "/api/employee")
 public class EmployeeRestController extends BaseRestController {
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "/api/employee", method = RequestMethod.POST)
 	public @ResponseBody ApiResponse createEmployee(
 		@RequestBody final Employee employee,
 		final HttpServletRequest request,
