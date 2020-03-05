@@ -42,25 +42,25 @@
 							<input id="employeeEmployeeId" type="text" th:value="${!employee.isEmpty} ? ${employee.employeeId} : ''" class="update" disabled />
 						</td>
 					</tr>
-					<tr th:class="${employee.isEmpty} ? hidden : ''">
+					<tr>
 						<td class="label">Employee First Name:</td>
 						<td>
 							<input id="employeeFirstName" type="text" placeholder="Enter your first name." th:value="${!employee.isEmpty} ? ${employee.firstname} : ''" class="update" />
 						</td>
 					</tr>
-					<tr th:class="${employee.isEmpty} ? hidden : ''">
+					<tr>
 						<td class="label">Employee Last Name:</td>
 						<td>
 							<input id="employeeLastName" type="text" placeholder="Enter your last name." th:value="${!employee.isEmpty} ? ${employee.lastname} : ''" class="update" />
 						</td>
 					</tr>
-					<tr th:class="${employee.isEmpty} ? hidden : ''">
+					<tr>
 						<td class="label">Employee Password:</td>
 						<td>
 							<input id="employeePassword" placeholder="Enter your password." type="password" th:value="${!employee.isEmpty} ? ${employee.password} : ''" class="update" />
 						</td>
 					</tr>
-					<tr th:class="${employee.isEmpty} ? hidden : ''">
+					<tr>
 						<td class="label">Verify Password:</td>
 						<td>
 							<input id="employeePasswordVerify" placeholder="Verify your password" type="password" th:value="${!employee.isEmpty} ? ${employee.password} : ''" class="update" />
@@ -94,7 +94,7 @@
 	</div>
 
 	<div class="footer" th:classappend="${employee.isInitialEmployee} ? hidden : ''">
-		<img id="signOutImage" src="/images/Sign-Out.png" alt="Sign Out" class="footer" />
+		<img id="signOutImage" src="/Sign-Out.png" alt="Sign Out" class="footer" />
 	</div>
 
 </body>
