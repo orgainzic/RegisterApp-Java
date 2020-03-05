@@ -133,7 +133,7 @@ public class EmployeeEntity {
 
 		apiEmployee.setId(this.getId());
 		apiEmployee.setCreatedOn(this.getCreatedOn());
-		apiEmployee.setEmployeeId(this.getEmployeeId());
+		apiEmployee.setEmployeeId(EmployeeHelper.padEmployeeId(this.getEmployeeId()));
 
 		return apiEmployee;
 	}

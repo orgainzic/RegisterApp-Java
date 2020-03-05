@@ -21,6 +21,5 @@ function validateForm() {
 		displayError("The password should not be blank");
 		return false;
 	}
-
 	return true;
 }
