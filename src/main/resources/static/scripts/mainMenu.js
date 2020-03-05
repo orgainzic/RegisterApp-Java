@@ -28,15 +28,15 @@ function productsClick(event) {
 	
 			window.location.replace(callbackResponse.data.redirectUrl);
 		} else {
-			window.location.replace("/");
+			window.location.replace("/api/productListing");
 		}
 	});
 }
 
 function createEmployeeClick(event) {
-	if(( ActiveUserEntity.classification == "Shift Manager" ) || ( ActiveUserEntity.classification == "General Manager" )) {
+	/*if(( ActiveUserEntity.classification == "Shift Manager" ) || ( ActiveUserEntity.classification == "General Manager" )) {
 		$("div.elevatedAccess").show();
-	}
+	}*/
 	ajaxDelete("/api/employee", (callbackResponse) => {
 		if ((callbackResponse.data != null)
 			&& (callbackResponse.data.redirectUrl != null)
@@ -44,7 +44,7 @@ function createEmployeeClick(event) {
 	
 			window.location.replace(callbackResponse.data.redirectUrl);
 		} else {
-			window.location.replace("/");
+			window.location.replace("/employee");
 		}
 	});
 }
