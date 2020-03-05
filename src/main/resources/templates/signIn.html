@@ -21,7 +21,7 @@
 			<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
 		</div>
 
-		<form action="/signin" method="POST" name="signInForm" onsubmit="return validateForm();" class="inputContent">
+		<form action="/" method="POST" name="signInForm"></form> <!-- onsubmit="return validateForm();" class="inputContent">-->
 			<label for="empId"><b>Employee ID</b></label>
 	        <input type="number" placeholder="Enter Employee ID" name="empId" required>
 
