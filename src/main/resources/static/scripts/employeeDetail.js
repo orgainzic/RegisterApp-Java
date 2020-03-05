@@ -31,8 +31,8 @@ function saveActionClick(event) {
 
 	const employeeId = getEmployeeId();
 	const employeeIdIsDefined = ((employeeId != null) && (employeeId.trim() !== ""));
-	const saveActionUrl = ("/api/employee/"
-		+ (employeeIdIsDefined ? employeeId : ""));
+	const saveActionUrl = "/api/employee";
+		//+ (employeeIdIsDefined ? employeeId : ""));
 	const saveEmployeeRequest = {
 		id: employeeId,
 		firstName: getFirstName(),
