@@ -48,6 +48,8 @@ public class SignInRouteController extends BaseRouteController {
 		//  and the "id" property of the (HttpServletRequest)request.getSession() variable
 		//  to sign in the user
 		ModelAndView modelAndView = new ModelAndView();
+		employeeSignIn.setEmployeeId(@RequestParam("empId"));
+		employeeSignIn.setPassword(@RequestParam("empPsw"));
 
 		try{
 			employeeSignInCommand.setCurrentSessionKey(request.getSession().getId());
