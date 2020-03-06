@@ -52,8 +52,8 @@ public class SignInRouteController extends BaseRouteController {
 		//employeeSignIn.setPassword(request.getParameter("enpPsw"));
 		System.out.println(body);
 		
-		employeeSignIn.setEmployeeId(body.get("enpId"));
-		employeeSignIn.setPassword(body.get("enpPsw"));
+		employeeSignIn.setEmployeeId(body.get("empId"));
+		employeeSignIn.setPassword(body.get("empPsw"));
 
 		System.out.println("TESTEING: " + employeeSignIn.getEmployeeId());
 		System.out.println("TESTING: " + employeeSignIn.getPassword());
