@@ -16,7 +16,6 @@ public class EmployeeHelper {
 	}
 
 	public static byte[] hashPassword(final String password) {
-		/*
 		// Hash password and return the bytes
 		try {
 			MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
@@ -27,7 +26,6 @@ public class EmployeeHelper {
 		} catch (NoSuchAlgorithmException e) {
 			// NoSuchAlgorithmException handled here
 		}
-		*/
 		return new byte[0];
 	}
 
