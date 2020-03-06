@@ -38,6 +38,10 @@ public class MainMenuRouteController extends BaseRouteController {
 		// TODO: Examine the ActiveUser classification if you want this information
 		if (!activeUserEntity.isPresent()){
 			modelAndView = new ModelAndView(ViewNames.SIGN_IN.getViewName());
+<<<<<<< HEAD
+=======
+			displayError("Invalid Credentials");
+>>>>>>> 152cb7860292c5d56c586e5e51f0f185dc814a09
 		}
 		
 		modelAndView.addObject(
