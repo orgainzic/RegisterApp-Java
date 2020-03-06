@@ -28,7 +28,7 @@ function productsClick(event) {
 	
 			window.location.replace(callbackResponse.data.redirectUrl);
 		} else {
-			window.location.replace("/");
+			window.location.replace("/api/productListing");
 		}
 	});
 }
@@ -44,7 +44,7 @@ function createEmployeeClick(event) {
 	
 			window.location.replace(callbackResponse.data.redirectUrl);
 		} else {
-			window.location.replace("/");
+			window.location.replace("/employee");
 		}
 	});
 }
