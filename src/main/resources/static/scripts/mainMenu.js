@@ -21,14 +21,14 @@ function startTransactionClick(event) {
 }
 
 function productsClick(event) {
-	ajaxDelete("/api/productListing", (callbackResponse) => {
+	ajaxDelete("/productList", (callbackResponse) => {
 		if ((callbackResponse.data != null)
 			&& (callbackResponse.data.redirectUrl != null)
 			&& (callbackResponse.data.redirectUrl !== "")) {
 	
 			window.location.replace(callbackResponse.data.redirectUrl);
 		} else {
-			window.location.replace("/productListing");
+			window.location.replace("/productList");
 		}
 	});
 }
@@ -37,7 +37,7 @@ function createEmployeeClick(event) {
 	/*if(( ActiveUserEntity.classification == "Shift Manager" ) || ( ActiveUserEntity.classification == "General Manager" )) {
 		$("div.elevatedAccess").show();
 	}*/
-	ajaxDelete("/api/employeeDetail", (callbackResponse) => {
+	ajaxDelete("/employeeDetail", (callbackResponse) => {
 		if ((callbackResponse.data != null)
 			&& (callbackResponse.data.redirectUrl != null)
 			&& (callbackResponse.data.redirectUrl !== "")) {
