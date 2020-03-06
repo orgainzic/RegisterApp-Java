@@ -37,7 +37,7 @@ function createEmployeeClick(event) {
 	/*if(( ActiveUserEntity.classification == "Shift Manager" ) || ( ActiveUserEntity.classification == "General Manager" )) {
 		$("div.elevatedAccess").show();
 	}*/
-	ajaxDelete("/api/employee", (callbackResponse) => {
+	ajaxDelete("/api/employeeDetail", (callbackResponse) => {
 		if ((callbackResponse.data != null)
 			&& (callbackResponse.data.redirectUrl != null)
 			&& (callbackResponse.data.redirectUrl !== "")) {
