@@ -37,8 +37,7 @@ public class MainMenuRouteController extends BaseRouteController {
 
 		// TODO: Examine the ActiveUser classification if you want this information
 		if (!activeUserEntity.isPresent()){
-			ModelAndView modelAndView =
-			new ModelAndView(ViewNames.SIGN_IN.getViewName());
+			modelAndView = new ModelAndView(ViewNames.SIGN_IN.getViewName());
 		}
 		
 		modelAndView.addObject(
